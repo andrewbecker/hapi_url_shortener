@@ -36,9 +36,11 @@ server.register(require('inert'), (err) => {
 
       server.start(err => {
         if (err) throw err;
-
+        server.emit('pluginsLoaded');
         console.log(`Server running at port ${server.info.port}`)
       })
     });
 
 });
+
+exports.server = server;
